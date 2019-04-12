@@ -1,0 +1,439 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>JS带动画手风琴下拉菜单</title> 
+<meta name="keywords" content="导航菜单,下拉菜单,手风琴菜单,JS下拉菜单,jQuery下拉菜单,导航下拉菜单特效" />
+<style>
+body,div,dl,dt,dd{margin:0;padding:0;}
+a:link,a:visited{color:#FFF;text-decoration:none;}
+a:hover{text-decoration:underline;}
+#wrap{width:350px;background:#FFF;border:12px solid #EEE;border-radius:10px;margin:10px auto 0;padding:5px 5px 4px;}
+#wrap dl{color:#FFF;overflow:hidden;background:#7CF;}
+#wrap dt,#wrap dd{padding-left:15px;border-bottom:1px solid #FFF;}
+#wrap dt{cursor:pointer;font-size:14px;background:#9C0;line-height:30px;font:700 14px/30px Tahoma;}
+#wrap dt.current{background:#09F;}
+#wrap dd{background:#7CF;line-height:25px;font:12px/25px Tahoma;}
+
+</style>
+<script src="js/CreateList.js"></script>
+<script>
+window.onload = function() {
+    new CreateList([
+    {
+        project: [{
+            text: "第一课"
+        },
+        {
+            text: "控制Div属性",
+            href: "#"
+        },
+        {
+            text: "网页换肤",
+            href: "#"
+        },
+        {
+            text: "函数接收参数并弹出",
+            href: "#"
+        },
+        {
+            text: "用循环将三个Div变成红色",
+            href: "#"
+        },
+        {
+            text: "鼠标移入/移出改变样式",
+            href: "#"
+        },
+        {
+            text: "记住密码提示框",
+            href: "#"
+        }]
+    },
+    {
+        project: [{
+            text: "第二课"
+        },
+        {
+            text: "百度输入法",
+            href: "#"
+        },
+        {
+            text: "点击Div，显示其innerHTML",
+            href: "#"
+        },
+        {
+            text: "求出数组中所有数字的和",
+            href: "#"
+        },
+        {
+            text: "弹出层效果",
+            href: "#"
+        },
+        {
+            text: "函数传参，改变Div任意属性的值",
+            href: "#"
+        },
+        {
+            text: "图片列表：鼠标移入/移出改变图片透明度",
+            href: "#"
+        },
+        {
+            text: "简易选项卡",
+            href: "#"
+        },
+        {
+            text: "简易JS年历",
+            href: "#"
+        },
+        {
+            text: "单一按钮显示/隐藏一播放列表收缩展开",
+            href: "#"
+        },
+        {
+            text: "提示框效果",
+            href: "#"
+        },
+        {
+            text: "鼠标移过，修改图片路径",
+            href: "#"
+        },
+        {
+            text: "复选框（checkbox）全选/全不选/返选",
+            href: "#"
+        }]
+    },
+    {
+        project: [{
+            text: "第三课"
+        },
+        {
+            text: "用typeof查看数据类型",
+            href: "#"
+        },
+        {
+            text: "用parseInt解析数字，并求和",
+            href: "#"
+        },
+        {
+            text: "累加按钮，自加1",
+            href: "#"
+        },
+        {
+            text: "输入两个数字，比较大小",
+            href: "#"
+        },
+        {
+            text: "页面加载后累加，自加1",
+            href: "#"
+        },
+        {
+            text: "判断数字是否为两位数",
+            href: "#"
+        },
+        {
+            text: "网页计算器",
+            href: "#"
+        },
+        {
+            text: "简易网页时钟",
+            href: "#"
+        },
+        {
+            text: "倒计时时钟（100秒）",
+            href: "#"
+        }]
+    },
+    {
+        project: [{
+            text: "第四课"
+        },
+        {
+            text: "setTimeout应用",
+            href: "#"
+        },
+        {
+            text: "自动播放一幻灯片效果",
+            href: "#"
+        },
+        {
+            text: "自动改变方向一幻灯片效果",
+            href: "#"
+        },
+        {
+            text: "agruments应用一求出函数参数的总合",
+            href: "#"
+        },
+        {
+            text: "css函数一设置/读取对象的属性",
+            href: "#"
+        },
+        {
+            text: "当前输入框高亮显示",
+            href: "#"
+        },
+        {
+            text: "数组练习：各种数组方法的使用",
+            href: "#"
+        },
+        {
+            text: "事件练习：封装兼容性添加、删除事件的函数",
+            href: "#"
+        },
+        {
+            text: "星级评分系统",
+            href: "#"
+        }]
+    },
+    {
+        project: [{
+            text: "第五课"
+        },
+        {
+            text: "模拟select控件",
+            href: "#"
+        },
+        {
+            text: "点击页面，显示单击的坐标",
+            href: "#"
+        },
+        {
+            text: "用户按下键盘，显示keyCode",
+            href: "#"
+        },
+        {
+            text: "阻止右键菜单（阻止默认事件）",
+            href: "#"
+        },
+        {
+            text: "跟随鼠标移动（大图展示）",
+            href: "#"
+        },
+        {
+            text: "自定义右键菜单",
+            href: "#"
+        },
+        {
+            text: "用键盘控制Div",
+            href: "#"
+        },
+        {
+            text: "Div闪烁",
+            href: "#"
+        }]
+    },
+    {
+        project: [{
+            text: "第六课"
+        },
+        {
+            text: "完美拖拽",
+            href: "#"
+        },
+        {
+            text: "仿腾讯微博效果",
+            href: "#"
+        },
+        {
+            text: "自定义多级右键菜单",
+            href: "#"
+        }]
+    },
+    {
+        project: [{
+            text: "第七课"
+        },
+        {
+            text: "自动轮播广告（缓冲效果）",
+            href: "#"
+        },
+        {
+            text: "图片切换（Loading效果）",
+            href: "#"
+        },
+        {
+            text: "移动效果（按轨迹移动）",
+            href: "#"
+        }]
+    },
+    {
+        project: [{
+            text: "第八课"
+        },
+        {
+            text: "iPhone手机解锁效果",
+            href: "#"
+        },
+        {
+            text: "自定义滚动条",
+            href: "#"
+        },
+        {
+            text: "拖拽一Clone",
+            href: "#"
+        },
+        {
+            text: "拖拽并可以改变大小",
+            href: "#"
+        }]
+    },
+    {
+        project: [{
+            text: "第九课"
+        },
+        {
+            text: "仿苹果电脑任务栏菜单",
+            href: "#"
+        },
+        {
+            text: "拼图小游戏",
+            href: "#"
+        },
+        {
+            text: "模拟表单控件",
+            href: "#"
+        }]
+    },
+    {
+        project: [{
+            text: "第十课"
+        },
+        {
+            text: "为数组添加方法（求和，最大值）",
+            href: "#"
+        },
+        {
+            text: "自动轮播广告（面向对象版）",
+            href: "#"
+        },
+        {
+            text: "运动框架（面向对象版）",
+            href: "#"
+        },
+        {
+            text: "照片墙一多实例演示（面向对象版）",
+            href: "#"
+        },
+        {
+            text: "拖拽库（面向对象版）",
+            href: "#"
+        },
+        {
+            text: "无缝滚动（面向对象版）",
+            href: "#"
+        },
+        {
+            text: "延时加载（面向对象版）",
+            href: "#"
+        },
+        {
+            text: "仿腾讯游戏《英雄杀》官网Flash效果",
+            href: "#"
+        },
+        {
+            text: "百度有啊通栏展示效果",
+            href: "#"
+        },
+        {
+            text: "放烟花效果（面向对象版）",
+            href: "#"
+        },
+        {
+            text: "《穿越火线》官网导航菜单",
+            href: "#"
+        },
+        {
+            text: "《百度风云榜》TAB切换",
+            href: "#"
+        },
+        {
+            text: "IBM官网导航条效果",
+            href: "#"
+        },
+        {
+            text: "面试题-动态生成表格",
+            href: "#"
+        }]
+    },
+    {
+        project: [{
+            text: "项目实例"	
+        },
+        {
+            text: "眼镜在线试戴",
+            href: "#"
+        },
+        {
+            text: "日历组件",
+            href: "#"	
+        },
+        {
+            text: "日历组件-淘宝旅行实例",
+            href: "#"	
+        },
+        {
+            text: "淘宝网-迷你登录",
+            href: "#"	
+        },
+        {
+            text: "仿Google+ 游戏频道焦点图效果",
+            href: "#"	
+        }]
+    },
+    {
+        project: [{
+            text: "YUI实例"
+        },
+        {
+            text: "淘宝旅行通用日历组件",
+            href: "#"
+        },
+        {
+            text: "酒店价格日历",
+            href: "#"
+        }]
+    },
+    {
+        project: [{
+            text: "KISSY实例"
+        },
+        {
+            text: "KISSY版-酒店价格日历",
+            href: "#"
+        },
+        {
+            text: "KISSY版-图片浏览组件",
+            href: "#"
+        },
+        {
+            text: "酒店地图交通与周边",
+            href: "#"
+        },
+        {
+            text: "多SKU酒店价格中心",
+            href: "#"
+        },
+        {
+            text: "多SKU门票价格中心",
+            href: "#"
+        },
+        {
+            text: "新版-多SKU门票价格中心",
+            href: "#"
+        }]
+    },    
+    ]);
+    // (function() {
+    //     var oDiv = document.createElement("div");
+    //     oDiv.style.width = "384px";
+    //     oDiv.style.textAlign = "right";
+    //     oDiv.style.margin = "5px auto 10px";
+    //     oDiv.innerHTML = "";
+    //     document.body.appendChild(oDiv)	
+    // })()
+};
+</script>
+</head>
+<div style="text-align:center;clear:both">
+</div>
+<body>
+</html>

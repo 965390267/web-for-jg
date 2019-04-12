@@ -1,0 +1,117 @@
+@charset "utf-8";
+/* 代码整理：懒人之家 www.lanrenzhijia.com */
+
+
+.clear {
+	font-size: 0px;
+	line-height: 0px;
+	clear: both;
+}
+ul, ol {
+	list-style-type: none;
+}
+.menu {
+	position: absolute;
+	top: 0px;
+    left: 20px;
+	width: 260px;
+	z-index: 999;
+	background-color: #fff;
+}
+.menu h1 {
+	border: 1px solid #dbdbdb;
+	font-size: 14px;
+	line-height: 29px;
+	height: 29px;
+	padding-left: 20px;
+	background-color: #f1f1f1;
+}
+.menu ul {
+}
+.menu ul li {
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-right-color: #dbdbdb;
+	border-bottom-color: #dbdbdb;
+	border-left-color: #dbdbdb;
+	height: 29px;
+	position: relative;
+	color: #336699;
+	float: left;
+	padding: 10px 0;
+	width: 258px;
+}
+.menu ul li p{
+	padding: 8px 0;
+}
+.menu ul li span {
+	border-bottom-width: 1px;
+	font-size: 14px;
+	line-height: 29px;
+	height: 29px;
+	cursor: pointer;
+	position: relative;
+	padding-left: 20px;
+	width: 150px;
+	display: block;
+}
+.menu ul li:hover {
+	color: #f83100;
+	background-color: #f2f2f2;
+}
+.menu ul li:hover a {
+	color: #f83100;
+	background-color: #f2f2f2;
+}
+.menu ul li:hover ol {
+	position: absolute;
+	display: block;
+}
+.menu ul li ol {
+	position: absolute;
+	left: 260px;
+	width: 250px;
+	background-color: #f2f2f2;
+	border: 1px solid #ccc;
+	top: -31px;
+	display: none;
+}
+.menu ul li ol dl {
+	position: relative;
+	padding-right: 8px;
+	padding-bottom: 7px;
+	padding-left: 8px;
+}
+.menu ul li ol dd {
+	padding: 10px;
+	border: 1px solid #e1e1e1;
+	background-color: #fff;
+}
+.menu ul li ol h2 {
+	line-height: 30px;
+	font-size: 12px;
+	height: 30px;
+}
+.menu ul li ol h2 em {
+	float: right;
+	font-weight: normal;
+	font-style: normal;
+	color: #777;
+	cursor: pointer;
+}
+.menu ul li ol small {
+	font-size: 0px;
+	line-height: 0px;
+	background-color: #f2f2f2;
+	display: block;
+	height: 29px;
+	width: 9px;
+	position: absolute;
+	top: 30px;
+	left: -9px;
+}
+/* 代码整理：懒人之家 www.lanrenzhijia.com */

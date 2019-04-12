@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>桃李园云课堂</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/coursedetail.css">
+    <!-- <link rel="stylesheet" href="./css/tabs.css"> -->
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="icon" href="favicon.ico" />
+</head>
+
+<body>
+    <div id="render">
+        <header>
+            <div class="header-wrap">
+                <div class="logo">
+                </div>
+                <ul class="list">
+                    <li><a href="./index.html">首页</a></li>
+                    <li><a href="./course.html">课程页</a></li>
+                    <li><a href="">免费课程</a></li>
+                    <li><a href="">我的学习</a></li>
+                </ul>
+                <div class="search-wrap">
+                    <input type="text" placeholder="请输入课程名称">
+                    <div class="search"></div>
+                </div>
+                <div class="right-wrap">
+                    <div class="usericon"></div>
+                    <div class="login" @click='openlogin'><a>登录</a> </div>/
+                    <div class="regist" @click='openregist'><a>注册</a> </div>
+                </div>
+            </div>
+
+        </header>
+        <!-- <div class="swiper_wrap " id='course-low-height'>
+    
+    </div> -->
+
+
+
+        <div class="body">
+            <div class="video-wrap">
+
+                <div class="fengmian-wrap">
+
+                </div>
+                <div class="right-corse-mes">
+                    <ul>
+                        <li><em>课程名称:</em> java学习</li>
+                        <li><em>讲师:</em> 臧志鸿</li>
+                        <li class='red'><em>价格:</em> ￥998</li>
+                        <li><em>vip会员价:</em> ￥98</li>
+                        <li> <button id="to-buy" type="button">去购买</button><button id="to-buy"
+                                type="button">已购买</button></li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+            <!--header end-->
+            <div class="switch-tabs">
+                <div class="tabs">
+                    <span class="part active" @click="switchTo(0)"><a hidefocus="true">课程介绍</a></span>
+                    <span class="part" @click="switchTo(1)"><a hidefocus="true">课程目录</a></span>
+
+                </div>
+
+                <div class="swiper-container slefsave">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide swiper-slide-visible swiper-slide-active">
+                            <div class="content-slide">
+                                <p>简介：在本课程中，老师带领大家认识Spring中的重要概念IoC，然后介绍如何对Spring Bean进行管理。</p>
+
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="content-slide">
+                                <div class="Cataloglist">
+                                    <h3>
+                                        第1章 node.js 调试入门
+                                    </h3>
+                                    <ul>
+                                        <li><a href="playpage.html"><span class="play-btn"></span> 1-1 Inspector 介绍
+                                                (13:00)</a></li>
+                                        <li><a href="playpage.html"><span class="play-btn"></span> 1-1 Inspector 介绍
+                                                (13:00)</a></li>
+                                        <li><a href="playpage.html"><span class="play-btn"></span> 1-1 Inspector 介绍
+                                                (13:00)</a></li>
+                                        <li><a href="playpage.html"><span class="play-btn"></span> 1-1 Inspector 介绍
+                                                (13:00)</a></li>
+                                    </ul>
+                                    <h3>
+                                        第2章 node.js 调试入门
+                                    </h3>
+                                    <ul>
+                                        <li><a href="playpage.html"><span class="play-btn"></span> 1-1 Inspector 介绍
+                                                (13:00)</a></li>
+                                        <li><a href="playpage.html"><span class="play-btn"></span> 1-1 Inspector 介绍
+                                                (13:00)</a></li>
+                                        <li><a href="playpage.html"><span class="play-btn"></span> 1-1 Inspector 介绍
+                                                (13:00)</a></li>
+                                        <li><a href="playpage.html"><span class="play-btn"></span> 1-1 Inspector 介绍
+                                                (13:00)</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+
+        <div class="left_tip">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <footer>
+            <p>企业合作 人才招聘 联系我们 讲师招募 帮助中心 意见反馈 代码托管 友情链接</p>
+            <p>&copy;2019 dffff.com 京ICP备 12003892号-11</p>
+        </footer>
+        <!-- 登录弹窗 -->
+        <div class="login-regist-alert" v-if='login_dialog'>
+            <div class="white_alert_box">
+                <div class="close-btn" @click='closelogin'></div>
+                <div class="ani_head">
+                    <div class="hand"></div>
+                    <div class="hand hand-r"></div>
+                </div>
+                <h3>登录</h3>
+                <form>
+                    <div>
+                        <input type="text" name="username" v-model="login_mobile" class="login-username"
+                            placeholder="用户名或手机号">
+                    </div>
+                    <div>
+                        <input type="text" name="login-code" v-model="login_code" id='login-password'
+                            class="login-password" placeholder="请输入验证码">
+                        <div id="getcode" @click='changecode'><img :src="codebase64" alt="" srcset=""></div>
+                    </div>
+                    <div>
+                        <input type="password" name="password" v-model="login_password" class="login-password"
+                            placeholder="密码">
+                    </div>
+                    <button id="login-btn" type="button" @click='login'>登 录</button>
+                </form>
+            </div>
+        </div>
+        <!-- 登录弹窗 -->
+        <!-- 注册弹窗 -->
+        <div class="regist-alert" v-if='regist_dialog'>
+            <div class="white_alert_box">
+                <div class="close-btn" @click='closeregist'></div>
+                <div class="ani_head">
+                    <div class="hand"></div>
+                    <div class="hand hand-r"></div>
+                </div>
+                <h3>注册</h3>
+                <form>
+                    <div>
+                        <input type="text" name="username" v-model="regist_mobile" class="regist-username"
+                            placeholder="手机号码">
+                    </div>
+                    <div>
+                        <input type="text" id='testcode' v-model="regist_inputcode" name="text" class="regist-password"
+                            placeholder="请输入验证码">
+                        <button id="testcode-btn" type='button' @click='sendcode'>发送验证码</button>
+                    </div>
+                    <div>
+                        <input type="password" v-model="regist_password" name="regist-password" class="password"
+                            placeholder="密码">
+                    </div>
+
+                    <button id="regist-btn" type="button" @click='regist'>注 册</button>
+                </form>
+            </div>
+        </div>
+        <!-- 注册弹窗 -->
+
+    </div>
+    <!-- Swiper JS -->
+    <!-- http://demo.lanrenzhijia.com/demo/69/6948/demo/ckin.mp4
+    http://www.jplayer.org/video/m4v/Incredibles_Teaser.m4v -->
+    <!-- <script src="./js/loginalert.js"></script> -->
+    <script src="./js/common.js"></script>
+    <script src="./js/vue.min.js"></script>
+    <script src="./js/swiper.min.js"></script>
+    <script src="./js/axios.min.js"></script>
+    <script src="./js/vue-lazyload.js"></script>
+
+
+
+
+    <script>
+        Vue.use(VueLazyload, {
+            preLoad: 1.2,
+            throttleWait: 500,
+            error: './img/404.jpg',
+            loading: './img/loading.gif',
+            attempt: 1
+        })
+        new Vue({
+            el: '#render',
+            mixins: [headermixin],
+            data: {
+
+                tabsSwiper: null
+            },
+            methods: {
+                swiper() {
+                    //    this.$nextTick(function(){
+                    this.tabsSwiper = new Swiper('.swiper-container', {
+                        speed: 500,
+                        on: {
+                            slideChangeTransitionStart: function () {
+                                console.log(this.activeIndex);
+                                var getATag = document.querySelectorAll('.part')
+                                for (var index = 0; index < getATag.length; index++) {
+                                    getATag[index].classList.remove('active');
+
+                                }
+                                document.querySelectorAll('.part')[this.activeIndex].classList.add(
+                                    'active')
+
+                            }
+                        }
+                    });
+                    //    })
+                },
+                switchTo(index) {
+                    this.tabsSwiper.slideTo(index);
+                }
+            },
+            mounted() {
+                this.swiper()
+            }
+        })
+    </script>
+</body>
+
+</html>

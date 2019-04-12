@@ -1,0 +1,42 @@
+.video-wrap {
+    position: relative;
+    width: 1160px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.Cataloglist {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 18%;
+    box-shadow: 0 8px 16px 0 rgba(7, 17, 27, .1);
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.Cataloglist li {
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    overflow: hidden;
+}
+
+.Cataloglist h3 {
+    text-align: center;
+    color: #727a80;
+    font-size: 14px;
+    font-weight: 700;
+    padding-top: 10px;
+}
+
+.play-btn {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-image: url('../img/play.png');
+    background-size: contain;
+    vertical-align: middle;
+    margin-right: 8px;
+}

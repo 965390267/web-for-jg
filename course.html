@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>桃李园云课堂</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/course.css">
+    <link rel="stylesheet" href="./css/tabs.css">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="icon" href="favicon.ico"/>
+
+</head>
+
+<body>
+        <div id="render">
+        <header>
+                <div class="header-wrap">
+                    <div class="logo">
+                    </div>
+                    <ul class="list">
+                        <li><a href="./index.html">首页</a></li>
+                        <li><a href="./course.html">课程页</a></li>
+                        <li><a href="">免费课程</a></li>
+                        <li><a href="">我的学习</a></li>
+                    </ul>
+                    <div class="search-wrap">
+                        <input type="text" placeholder="请输入课程名称">
+                        <div class="search"></div>
+                    </div>
+                    <div class="right-wrap">
+                        <div class="usericon"></div>
+                        <div class="login" @click='openlogin'><a>登录</a> </div>/
+                        <div class="regist" @click='openregist'><a>注册</a> </div>
+                    </div>
+                </div>
+    
+            </header>
+    <div class="swiper_wrap " id='course-low-height'>
+        <!-- <div class="bk" style="background-image: url(&quot;//img1.sycdn.imooc.com/5c9229900001b4e616000540.jpg&quot;);"> -->
+    </div>
+
+    
+
+    <div class="body">
+
+        <h3 class="types-title">
+            <span class="tit-icon icon-shizhan-l tit-icon-l"></span>
+            <span v-html='title'>
+               
+            </span>
+         
+            <!-- <em>小</em>／<em>学</em>／<em>一</em>／<em>年</em>／<em>级</em> -->
+            <span class="tit-icon icon-shizhan-r tit-icon-r"></span>
+        </h3>
+        <div class="clearfix types-content" id='save-padding-left'>
+            <div class="menu">
+                <!-- <h1>年级分类</h1> -->
+                <ul id="allClass">
+                    <li v-for="item in stage" @click="getleavel(item.id,item.name)"> <span><a >{{item.name}}</a></span>
+                        <!-- <ol>
+                            <dl>
+                                <dt>
+                                  <h2><em onclick="closeBox(this)">关闭</em>栏目分类</h2>
+                                </dt>
+                                <dd>
+                                    <p><a href="javascript:">一年级</a></p>
+                                    <p><a href="javascript:">二年级</a></p>
+                                    <p><a href="javascript:">三年级</a></p>
+                                    <p><a href="javascript:">四年级</a></p>
+                                    <p><a href="javascript:">五年级</a></p>
+                                    <p><a href="javascript:">六年级</a></p>
+                                </dd>
+                                <small>&nbsp;</small>
+                            </dl>
+                        </ol> -->
+                    </li>
+                  
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="index-card-container course-card-container container" v-for="item in courselist">
+                <a class="course-card"  href="coursedetail.html">
+                    <div class="course-card-top hashadow">
+                        <img class="course-banner" v-lazy="item.cover">
+
+
+                        <div class="course-label">
+                            <label>Vue.js</label>
+                        </div>
+                    </div>
+                    <div class="course-card-content">
+                        <h3 class="course-card-name"> {{item.name}}</h3>
+                        <div class="clearfix course-card-bottom">
+                            <div class="course-card-info">
+                                <span>实战</span><span>中级</span><span><i class="icon-set_sns"></i>5148</span>
+                                <span class="course-star-box"><i class="icon-star2 on"></i><i
+                                        class="icon-star2 on"></i><i class="icon-star2 on"></i><i
+                                        class="icon-star2 on"></i><i class="icon-star2 on"></i></span>
+                            </div>
+
+
+                            <div class="course-card-price sales">￥{{item.price}}
+
+                                <span class="sales-tip">满减</span>
+
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <div class="left_tip">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <footer>
+        <p>企业合作 人才招聘 联系我们 讲师招募 帮助中心 意见反馈 代码托管 友情链接</p>
+        <p>&copy;2019 dffff.com 京ICP备 12003892号-11</p>
+    </footer>
+        <!-- 登录弹窗 -->
+        <div class="login-regist-alert" v-show='login_dialog' style='display: none;'>
+            <div class="white_alert_box">
+                <div class="close-btn" @click='closelogin'></div>
+                <div class="ani_head">
+                    <div class="hand"></div>
+                    <div class="hand hand-r"></div>
+                </div>
+                <h3>登录</h3>
+                <form>
+                    <div>
+                        <input type="text" name="username" v-model="login_mobile" class="login-username"
+                            placeholder="用户名或手机号">
+                    </div>
+                    <div>
+                        <input type="text" name="login-code" v-model="login_code" id='login-password'
+                            class="login-password" placeholder="请输入验证码">
+                        <div id="getcode" @click='changecode'><img :src="codebase64" alt="" srcset=""></div>
+                    </div>
+                    <div>
+                        <input type="password" name="password" v-model="login_password" class="login-password"
+                            placeholder="密码">
+                    </div>
+                    <button id="login-btn" type="button" @click='login'>登 录</button>
+                </form>
+            </div>
+        </div>
+        <!-- 登录弹窗 -->
+        <!-- 注册弹窗 -->
+        <div class="regist-alert" v-show='regist_dialog' style='display: none;'>
+            <div class="white_alert_box">
+                <div class="close-btn" @click='closeregist'></div>
+                <div class="ani_head">
+                    <div class="hand"></div>
+                    <div class="hand hand-r"></div>
+                </div>
+                <h3>注册</h3>
+                <form>
+                    <div>
+                        <input type="text" name="username" v-model="regist_mobile" class="regist-username"
+                            placeholder="手机号码">
+                    </div>
+                    <div>
+                        <input type="text" id='testcode' v-model="regist_inputcode" name="text" class="regist-password"
+                            placeholder="请输入验证码">
+                        <button id="testcode-btn" type='button' @click='sendcode'>发送验证码</button>
+                    </div>
+                    <div>
+                        <input type="password" v-model="regist_password" name="regist-password" class="password"
+                            placeholder="密码">
+                    </div>
+
+                    <button id="regist-btn" type="button" @click='regist'>注 册</button>
+                </form>
+            </div>
+        </div>
+        <!-- 注册弹窗 -->
+
+    </div>
+    <!-- Swiper JS -->
+
+    <script src="./js/common.js"></script>
+    <script src="./js/vue.min.js"></script>
+    <script src="./js/axios.min.js"></script>
+    <script src="./js/vue-lazyload.js"></script>
+    <script>
+                Vue.use(VueLazyload, {
+  preLoad: 1.2,
+  throttleWait:500,
+  error: './img/404.jpg',
+  loading: './img/loading.gif',
+  attempt: 1
+})
+        new Vue({
+            el: '#render',
+            mixins: [headermixin],
+            data: {
+                title:' <em>一</em>／<em>年</em>／<em>级</em>',
+                filterimg: '1111',
+                stage:[],
+                courselist:[]
+            },
+            methods: {
+                getstage(){
+                    var that = this;
+                    axios.get(baseurl + 'cloud/level/getStage')
+                        .then(function (response) {
+                            that.stage = response.data.data.reverse();
+                             that.getAllstage(that.stage[0].id)
+
+                        }).catch()
+                },
+                getAllstage(id){
+                    var that = this;
+                    axios.get(baseurl + 'cloud/course/getCoursesByStage?stage='+id)
+                        .then(function (response) {
+                            that.courselist = response.data.data;
+
+
+                        }).catch()
+                },
+                getleavel(id,name){
+                   
+                    var htmlTag='';
+                    for (var index = 0; index < name.length; index++) {
+                       var char = name[index];
+                       htmlTag+= '<em>'+char+'</em>／';
+                    }
+
+                    this.title=htmlTag;
+                    this.getAllstage(id)
+                }
+            },
+            mounted() {
+                this.getstage();
+              
+            }
+            })
+        function toggle() {
+            var arrayli = document.getElementById("allClass").getElementsByTagName("li"); //获取菜单数组
+            for (i = 0; i < arrayli.length; i++) {
+                arrayli[i].onmouseover = function () {
+                    this.className = "this";
+                }
+                arrayli[i].onmouseout = function () {
+                    this.className = "";
+                }
+                // arrayli[i].getElementsByTagName("em")[0].onclick=function(){
+                // 	this.parentNode.parentNode.parentNode.parentNode.parentNode.className = "";
+                // }
+            }
+        }
+        // window.onload = function () {
+        //     toggle();
+        // }
+    </script>
+</body>
+
+</html>

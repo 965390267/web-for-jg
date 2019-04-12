@@ -1,0 +1,162 @@
+.video-wrap {
+    position: relative;
+    width: 1000px;
+    height: 300px;
+    margin: 0 auto;
+    margin-top: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 8px 0 rgba(7, 17, 27, .06)
+}
+
+.fengmian-wrap {
+    float: left;
+    width: 50%;
+    height: 300px;
+    background-image: url('//img3.mukewang.com/szimg/5ac2dfe100014a9005400300.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.right-corse-mes {
+    float: left;
+    width: 50%;
+    height: 300px;
+}
+
+.right-corse-mes ul {
+    margin: 20px 0 0 20px;
+}
+
+.right-corse-mes li {
+    font-size: 16px;
+    padding: 10px 0px 10px 30px;
+}
+
+.right-corse-mes em {
+    color: #666;
+}
+
+.red {
+    color: rgb(218, 58, 58);
+    text-decoration: line-through;
+}
+
+.switch-tabs {
+
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.slefsave {
+    width: 70%;
+    /* height: 600px; */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px 0 rgba(7, 17, 27, .06)
+}
+.slefsave p{
+    padding: 15px 10px 0 15px;
+    text-align: left;
+    font-size: 14px;
+}
+.tabs {
+    width: 70%;
+    height: 40px;
+    background: #fff;
+    border-radius: 8px 8px 0 0;
+    margin: 0 auto;
+    padding-top: 8px;
+    text-align: center
+}
+
+.tabs .part {
+    display: block;
+    float: left;
+    width: 49.5%;
+    color: #666;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+
+
+.tabs a {
+    width: 70px;
+    display: inline-block;
+
+    text-align: center;
+    margin: 0 auto;
+    font-size: 16px;
+    text-decoration: none;
+    padding-bottom: 2px;
+}
+
+.tabs span.active {
+
+    background:  #85a5ff;
+}
+
+.tabs span.active a {
+    color: #fff;
+}
+
+.swiper-slide {
+    width: 100%;
+    background: none;
+    color: #373737;
+}
+
+.Cataloglist {
+  
+    background-color: #fff;
+    border-radius: 8px;
+}
+.Cataloglist ul{
+    margin: 20px 0;
+    padding-left: 20px;
+    /* box-shadow: 0 8px 16px 0 rgba(7, 17, 27, .1); */
+}
+.Cataloglist li {
+    height: 30px;
+    line-height: 30px;
+    /* text-align: center; */
+    padding: 6px 0;
+    overflow: hidden;
+}
+
+.Cataloglist h3 {
+    padding-left: 20px;
+    /* text-align: center; */
+    color: #727a80;
+    font-size: 14px;
+    font-weight: 700;
+    padding-top: 10px;
+}
+#to-buy{
+cursor: pointer;
+width: 150px;
+height: 44px;
+margin-top: 25px;
+padding: 0;
+background: #ffa940;
+-moz-border-radius: 6px;
+-webkit-border-radius: 6px;
+border-radius: 6px;
+border: 0;
+font-size: 14px;
+font-weight: 700;
+color: #fff;
+text-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+.play-btn {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-image: url('../img/play.png');
+    background-size: contain;
+    vertical-align: middle;
+    margin-right: 8px;
+}

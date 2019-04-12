@@ -1,0 +1,504 @@
+body{
+    background-color: #f8fafc;
+}
+/* 导航栏样式 */
+header{
+    min-width: 1200px;
+    height: 72px;
+    box-shadow: 0 4px 8px 0 rgba(7,17,27,.1);
+    background-color: #fff;
+}
+.header-wrap{
+    max-width: 1800px;
+    margin: 0 auto;
+}
+.logo{
+    width: 120px;
+    height: 72px;
+    float: left;
+    margin-left: 40px;
+}
+.list{
+    float: left;
+}
+.list li{
+    float: left;
+    padding: 0 20px;
+    color: #07111b;
+    font-size: 16px;
+   
+    height: 72px;
+    line-height: 72px;
+}
+.list li a{
+    display: block;
+    height: 72px;
+    width: 72px;
+    text-align: center;
+    color:#07111b;
+}
+.search-wrap{
+    position: relative;
+    float: left;
+    height: 72px;
+    width: 240px;
+    line-height: 72px;
+   margin-left: 20px;
+}
+.search-wrap input{
+    position: relative;
+   outline: none;
+   border: none;
+   border-bottom: 1px solid #d9dde1;
+   height: 40px;
+   width: 180px;
+   transition: all .5s;
+}
+/* .search-wrap input::before{
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 2px;
+    background-color: #f01414;
+
+} */
+.search{
+    position: absolute;
+    right: 40px;
+    top: 26px;
+    width: 25px;
+    height: 25px;
+    background-image: url(../img/search.png);
+    background-size: contain;
+}
+.search-wrap input:focus {
+    border-color: #d46b08; 
+}
+.right-wrap{
+   
+    float: right;
+    height: 72px;
+    margin-right: 150px;
+    color: #d9dde1;
+    cursor: pointer;
+}
+.usericon{
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: 1px solid #ccc;
+    margin-top: 14px;
+    margin-right: 5px;
+    background-image: url(../img/100.png);
+    background-size: 100% 100%;
+}
+.login{
+    display: inline-block;
+    width: 40px;
+    color:#07111b;
+    font-size: 14px;
+    margin-top: 30px;
+}
+.regist{
+    display: inline-block;
+    width: 40px;
+    color:#07111b;
+    font-size: 14px;
+    margin-top: 30px;
+    padding-left: 5px;
+}
+/* 导航栏样式完 */
+/* 底部footer样式 */
+footer{
+    margin-top:40px; 
+}
+footer p{
+    text-align: center;
+    font-size: 14px;
+    padding: 5px 5px;
+}
+/* 底部footer样式over */
+.login-regist-alert{
+    /* display: none; */
+    position: fixed;
+    top:0px;
+    left: 0px;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(7,17,27,.8);
+}
+.regist-alert{
+    /* display: none; */
+    position: fixed;
+    top:0px;
+    left: 0px;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(7,17,27,.8);
+}
+.white_alert_box{
+    position: absolute;
+    left: 50%;
+    top:50%;
+    width: 400px;
+    height: 360px;
+    background-color: #fff;
+    border-radius: 10px;
+    transform: translate(-50%,-50%);
+}
+.white_alert_box h3{
+    padding: 15px 0 0 0;
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    font-weight: bold;
+}
+.close-btn{
+    width: 40px;
+    height: 40px;
+    background-image: url('../img/close-btn.png');
+    background-size: contain;
+    position: absolute;
+    top: -70px;
+    left: 90%;
+cursor: pointer;
+}
+.ani_head{
+    width: 211px;
+    height: 108px;
+    background-image: url('../img/owl-login.png');
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    margin-left: -100px;
+}
+.hand {
+    width: 34px;
+    height: 34px;
+    -webkit-border-radius: 40px;
+    border-radius: 40px;
+    background-color: #472d20;
+    -webkit-transform: scaleY(0.6);
+    -moz-transform: scaleY(0.6);
+    -o-transform: scaleY(0.6);
+    -ms-transform: scaleY(0.6);
+    transform: scaleY(0.6);
+    -webkit-transition: 0.3s ease-out;
+    -moz-transition: 0.3s ease-out;
+    -o-transition: 0.3s ease-out;
+    -ms-transition: 0.3s ease-out;
+    transition: 0.3s ease-out;
+    position: absolute;
+    left: 14px;
+    bottom: -8px;
+}
+ .hand.hand-r {
+    left: 170px;
+}
+
+.password:focus .hand{ 
+  
+        -webkit-transform: translateX(42px) translateY(-15px) scale(0.7);
+        -moz-transform: translateX(42px) translateY(-15px) scale(0.7);
+        -o-transform: translateX(42px) translateY(-15px) scale(0.7);
+        -ms-transform: translateX(42px) translateY(-15px) scale(0.7);
+        transform: translateX(42px) translateY(-15px) scale(0.7);
+      
+}
+.login-regist-alert form,.regist-alert form{
+    width: 300px;
+    margin: 0 auto;
+}
+.login-regist-alert input,.regist-alert input{
+ 
+        width: 270px;
+        height: 42px;
+        line-height: 42px;
+        margin-top: 25px;
+        padding: 0 15px;
+        background: #2d2d2d;
+        background: rgba(124, 86, 86, 0.05);
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+        border-radius: 6px;
+        border: 1px solid #3d3d3d;
+        border: 1px solid rgba(255,255,255,.15);
+        -moz-box-shadow: 0 2px 3px 0 rgba(0,0,0,.1) inset;
+        -webkit-box-shadow: 0 2px 3px 0 rgba(0,0,0,.1) inset;
+        box-shadow: 0 2px 3px 0 rgba(0,0,0,.1) inset;
+        font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif;
+        font-size: 14px;
+        color: #000;
+        text-shadow: 0 1px 2px rgba(0,0,0,.1);
+        -o-transition: all .2s;
+        -moz-transition: all .2s;
+        -webkit-transition: all .2s;
+        -ms-transition: all .2s;
+    
+}
+#login-password{
+    width: 180px;
+   
+}
+#getcode{
+    display: inline-block;
+    width: 80px;
+    height: 44px;
+    vertical-align: middle;
+    cursor: pointer;
+    /* margin-top: 25px; */
+}
+#getcode img{
+    width: 100%;
+    height: 100%;
+}
+.login-regist-alert input:focus ,.regist-alert input:focus{
+    outline: 0;
+    -moz-box-shadow: 0 2px 3px 0 rgba(0,0,0,.1) inset,0 2px 7px 0 rgba(0,0,0,.2);
+    -webkit-box-shadow: 0 2px 3px 0 rgba(0,0,0,.1) inset, 0 2px 7px 0 rgba(0,0,0,.2);
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,.1) inset, 0 2px 7px 0 rgba(0,0,0,.2);
+}
+.login-regist-alert  button ,.regist-alert button{
+    cursor: pointer;
+    width: 300px;
+    height: 44px;
+    margin-top: 25px;
+    padding: 0;
+    background: #ffa940;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    border: 0;
+    -moz-box-shadow: 0 15px 30px 0 rgba(255,255,255,.25) inset,0 2px 7px 0 rgba(0,0,0,.2);
+    font-family: "Microsoft YaHei",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,.1);
+    -o-transition: all .2s;
+    -moz-transition: all .2s;
+    -webkit-transition: all .2s;
+    -ms-transition: all .2s;
+}
+.login-regist-alert  button:hover,.regist-alert button:hover{
+    background: #ffd591;
+}
+#testcode{
+    width: 160px;
+}
+#testcode-btn{
+    width: 100px;
+    background-color: #91d5ff;
+}
+/* swiper样式 */
+.swiper_wrap{
+    position: relative;
+    margin-top: 30px;
+    height: 250px;
+
+}
+/* swiper样式 */
+
+/* 课程列表样式 */
+ .types-content {
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 24px;
+    /* margin-left: -18px; */
+}
+ .index-card-container {
+    float: left;
+    margin-left: 18px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    width: 216px;
+    /* height: 252px; */
+    position: relative;
+    transition: .3s all linear;
+   
+}
+ .course-card-top.hashadow {
+    overflow: hidden;
+    width: 216px;
+    height: 120px;
+    position: relative;
+    border-radius: 8px;
+    transition: all .3s;
+}
+ .course-card-top .course-banner {
+    width: 100%;
+    height: 100%;
+    background-color: #f3f5f7;
+    border-radius: 8px;
+}
+ .course-card-top .course-label {
+    position: absolute;
+    bottom: 6px;
+    left: 8px;
+    font-size: 12px;
+    color: #fff;
+    line-height: 16px;
+}
+.course-card-top .course-label label {
+    display: inline-block;
+    background: rgba(7,17,27,.4);
+    border-radius: 12px;
+    padding: 4px 8px;
+    margin-right: 4px;
+    margin-bottom: 2px;
+    margin-right: 0;
+    font-weight: 200;
+}
+.course-card-content {
+    padding: 12px 8px;
+}
+.course-card-content .course-card-name {
+    font-size: 16px;
+    color: #07111b;
+    line-height: 24px;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    max-height: 46px;
+    transition: all .3s;
+}
+ .course-card-content .course-card-info {
+    font-size: 12px;
+    color: #93999f;
+    line-height: 24px;
+    margin-top: 8px;
+    font-weight: 400;
+}
+.course-card-content .course-card-info span {
+    display: inline-block;
+    margin-right: 12px;
+}
+.course-card-info em{
+    color:#f01414;
+}
+.course-card-price.sales {
+    font-size: 12px;
+    /* color: #4d555d; */
+    line-height: 20px;
+    color: #f01414;
+}
+.cost-price{
+    font-size: 14px;
+}
+.source-price{
+    text-decoration: line-through;
+    color: #ccc;
+}
+.clearfix:after {
+    content: '\0020';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.course-card-price.sales .sales-tip {
+    background: rgba(240,20,20,.06);
+}
+
+.course-card-price .sales-tip {
+    border-radius: 2px;
+    padding: 0 4px;
+    margin-left: 4px;
+}
+/* 新课样式 */
+ .course-stat.new {
+    background-color: #fa0;
+    background-image: linear-gradient(90deg,#fa0 17%,#f76b1c 100%);
+}
+/* 热门样式 */
+ .course-stat.hot {
+    background-color: #f02930;
+    background-image: linear-gradient(90deg,#f68688 0,#f02930 100%);
+}
+ .course-stat {
+    position: absolute;
+    border: 2px solid #fff;
+    border-radius: 12px;
+    top: 8px;
+    left: -8px;
+    z-index: 4;
+    font-family: dincondm;
+    font-size: 12px;
+    color: #fff;
+    line-height: 20px;
+    padding: 0 8px;
+}
+.course-card-container:hover .course-card-top.hashadow {
+    box-shadow: 0 8px 16px 0 rgba(7,17,27,.1);
+}
+.course-card-container:hover .course-card-name {
+    color: #fa541c;
+}
+
+.types-title {
+    position: relative;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #93999f;
+    letter-spacing: .6px;
+    line-height: 36px;
+    text-align: center;
+}
+
+.types-title em {
+    font-size: 20px;
+    font-weight: 600;
+    color: #4d555d;
+    margin: 0 3px;
+}
+
+.types-title .tit-icon {
+    display: inline-block;
+    vertical-align: bottom;
+    width: 56px;
+    height: 36px;
+    background: url('../img/icon.png') no-repeat;
+    background-size: 100%;
+}
+
+/* 标题的图片定位 */
+.types-title span.icon-shizhan-l {
+    background-position: center 0;
+    margin-right: 24px;
+}
+
+.types-title span.icon-shizhan-r {
+    background-position: center -36px;
+    margin-left: 24px;
+}
+
+.types-title span.icon-new-l {
+    background-position: center -72px;
+    margin-right: 24px;
+}
+
+.types-title span.icon-new-r {
+    background-position: center -108px;
+    margin-left: 24px;
+}
+
+.types-title span.icon-tech-l {
+    background-position: center -288px;
+    margin-right: 24px;
+}
+
+.types-title span.icon-tech-r {
+    background-position: center -324px;
+    margin-left: 24px;
+}
+
+/* 标题的图片定位 */
+/* 标题样式结束 */

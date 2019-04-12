@@ -1,0 +1,103 @@
+
+
+.swiper_wrap .bk {
+    width: 100%;
+
+    position: absolute;
+    top: -130px;
+    z-index: -6;
+    background-image: url(https://img1.sycdn.imooc.com/5c6156ea000193ed18720632.jpg);
+    background-size: cover;
+    transition: all .3s .5s;
+    height: 180px;
+    opacity: .3;
+    -webkit-filter: blur(100px);
+    -moz-filter: blur(100px);
+    -o-filter: blur(100px);
+    -ms-filter: blur(100px);
+    filter: blur(100px);
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+/* 标题样式开始 */
+.body{
+background-color: #fff;  
+}
+.types-title {
+    position: relative;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #93999f;
+    letter-spacing: .6px;
+    line-height: 36px;
+    text-align: center;
+}
+
+.types-title em {
+    font-size: 20px;
+    font-weight: 600;
+    color: #4d555d;
+    margin: 0 3px;
+}
+
+.types-title .tit-icon {
+    display: inline-block;
+    vertical-align: bottom;
+    width: 56px;
+    height: 36px;
+    background: url('../img/icon.png') no-repeat;
+    background-size: 100%;
+}
+
+/* 标题的图片定位 */
+.types-title span.icon-shizhan-l {
+    background-position: center 0;
+    margin-right: 24px;
+}
+
+.types-title span.icon-shizhan-r {
+    background-position: center -36px;
+    margin-left: 24px;
+}
+
+.types-title span.icon-new-l {
+    background-position: center -72px;
+    margin-right: 24px;
+}
+
+.types-title span.icon-new-r {
+    background-position: center -108px;
+    margin-left: 24px;
+}
+
+.types-title span.icon-tech-l {
+    background-position: center -288px;
+    margin-right: 24px;
+}
+
+.types-title span.icon-tech-r {
+    background-position: center -324px;
+    margin-left: 24px;
+}
+
+/* 标题的图片定位 */
+/* 标题样式结束 */

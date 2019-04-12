@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>桃李园云课堂</title>
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="./css/reset.css">
+
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="./css/swiper.min.css">
+
+    <style>
+        [v-cloak] {
+            display: none
+        }
+
+        .swiper-container {
+            width: 90%;
+            height: 98%;
+            border-radius: 10px;
+            box-shadow: 0 8px 8px 0 rgba(7, 17, 27, .06);
+        }
+
+        .swiper-pagination-bullet {
+            width: 20px;
+            height: 4px;
+
+            border-radius: 2px;
+        }
+
+        .swiper-pagination-bullet-active {
+
+            background: #ffd666;
+        }
+
+        .swiper-button-prev {
+            background-image: url('../img/arrow.png') !important;
+            height: 25px !important;
+            transform: rotateZ(180deg);
+        }
+
+        .swiper-button-next {
+            background-image: url('../img/arrow.png') !important;
+            height: 25px !important;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="render">
+        <header>
+            <div class="header-wrap">
+                <div class="logo">
+                </div>
+                <ul class="list">
+                    <li><a href="./index.html">首页</a></li>
+                    <li><a href="./course.html">课程页</a></li>
+                    <li><a href="">免费课程</a></li>
+                    <li><a href="">我的学习</a></li>
+                </ul>
+                <div class="search-wrap">
+                    <input type="text" placeholder="请输入课程名称">
+                    <div class="search"></div>
+                </div>
+                <div class="right-wrap">
+                    <div class="usericon"></div>
+                    <div class="login" @click='openlogin'><a>登录</a> </div>/
+                    <div class="regist" @click='openregist'><a>注册</a> </div>
+                </div>
+            </div>
+
+        </header>
+
+
+        <div class="swiper_wrap">
+            <div class="bk" :style="{backgroundImage:''+filterimg+''}">
+            </div>
+            <!-- Swiper -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" v-for="item in bannerlist"
+                        :style="{backgroundImage:'url('+item.image+')'}" :key='item.id'>
+                    </div>
+
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+
+        <div class="body">
+            <h3 class="types-title">
+                <span class="tit-icon icon-shizhan-l tit-icon-l"></span>
+                <em>限</em>／<em>时</em>／<em>秒</em>／<em>杀</em>
+                <span class="tit-icon icon-shizhan-r tit-icon-r"></span>
+            </h3>
+            <div class="clearfix types-content">
+
+                <div class="index-card-container course-card-container container" v-for='(item,index) in discount'>
+                    <a target="_blank" class="course-card" href="" data-track="sztj-1-2">
+
+
+                        <div class="course-stat new">
+                           新课
+                         
+                        </div>
+                        <div class="course-card-top hashadow">
+                            <img class="course-banner" v-lazy="item.cover">
+
+
+                            <div class="course-label">
+                                <label>剩余{{item.diff.hour}}小时{{item.diff.minute}}分{{item.diff.second}}秒</label>
+
+                            </div>
+                        </div>
+                        <div class="course-card-content">
+                            <h3 class="course-card-name">{{item.name}}</h3>
+                            <div class="clearfix course-card-bottom">
+                                <div class="course-card-info">
+                                    <span>已有 <em> {{item.buyerNum}}</em>购买</span>
+                                    <!-- <span class="course-star-box">剩余3天5小时10分30秒</span> -->
+                                </div>
+
+
+                                <div class="course-card-price sales">
+                                    <span class="source-price">￥{{item.price}}</span>
+                                    <span class="cost-price">￥{{item.discountPrice}}</span>
+                                    <span class="sales-tip">限时优惠<i class="sales-timer js-sales-timer"
+                                            data-timer="631543"></i></span> </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+
+            </div>
+
+            <h3 class="types-title">
+                <span class="tit-icon icon-new-l tit-icon-l"></span>
+                <em>推</em>／<em>荐</em>／<em>名</em>／<em>师</em>
+                <span class="tit-icon icon-new-r tit-icon-r"></span>
+            </h3>
+            <div class="clearfix types-content">
+                <div class="index-card-container course-card-container container" v-for="item in teacherlist"
+                    :key='item.courseId'>
+                    <a class="course-card" :href="'course.html?cid='+item.courseId">
+
+
+                        <div class="course-card-top hashadow">
+                            <img class="course-banner" v-lazy="item.image">
+
+
+                        </div>
+
+                    </a>
+                </div>
+
+
+
+            </div>
+            <h3 class="types-title">
+                <span class="tit-icon icon-tech-l tit-icon-l"></span>
+                <em>系</em>／<em>列</em>／<em>课</em>／<em>程</em>
+                <span class="tit-icon icon-tech-r tit-icon-r"></span>
+            </h3>
+            <div class="clearfix types-content">
+
+                <div class="index-card-container course-card-container container" v-for="item in common"
+                    :key='item.courseId'>
+                    <a target="_blank" class="course-card" href="" data-track="sztj-1-4">
+
+
+                        <div class="course-stat hot">
+                            热门
+                        </div>
+                        <div class="course-card-top hashadow">
+                            <img class="course-banner" v-lazy="item.cover">
+
+
+                            <div class="course-label">
+                                <label>JavaScript</label>
+                                <label>算法与数据结构</label>
+                            </div>
+                        </div>
+                        <div class="course-card-content">
+                            <h3 class="course-card-name">{{item.name}} </h3>
+                            <div class="clearfix course-card-bottom">
+                                <div class="course-card-info">
+                                    <span>已有 <em> {{item.buyerNum}}</em>购买</span><em>￥{{item.price}}元</em>
+                                    <!-- <span>实战</span><span>中级</span><span><i class="icon-set_sns"></i>1030</span>
+                                    <span class="course-star-box"><i class="icon-star2 on"></i><i
+                                            class="icon-star2 on"></i><i class="icon-star2 on"></i><i
+                                            class="icon-star2 on"></i><i class="icon-star2 on"></i></span> -->
+                                </div>
+
+
+                                <div class="course-card-price sales">
+
+                                    <!-- <span class="sales-tip">满减</span> -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="left_tip">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <footer>
+            <p>企业合作 人才招聘 联系我们 讲师招募 帮助中心 意见反馈 代码托管 友情链接</p>
+            <p>&copy;2019 dffff.com 京ICP备 12003892号-11 技术支持zzh</p>
+        </footer>
+        <!-- 登录弹窗 -->
+        <div class="login-regist-alert" v-show='login_dialog' style='display: none;'>
+            <div class="white_alert_box">
+                <div class="close-btn" @click='closelogin'></div>
+                <div class="ani_head">
+                    <div class="hand"></div>
+                    <div class="hand hand-r"></div>
+                </div>
+                <h3>登录</h3>
+                <form>
+                    <div>
+                        <input type="text" name="username" v-model="login_mobile" class="login-username"
+                            placeholder="用户名或手机号">
+                    </div>
+                    <div>
+                        <input type="text" name="login-code" v-model="login_code" id='login-password'
+                            class="login-password" placeholder="请输入验证码">
+                        <div id="getcode" @click='changecode'><img :src="codebase64" alt="" srcset=""></div>
+                    </div>
+                    <div>
+                        <input type="password" name="password" v-model="login_password" class="login-password"
+                            placeholder="密码">
+                    </div>
+                    <button id="login-btn" type="button" @click='login'>登 录</button>
+                </form>
+            </div>
+        </div>
+        <!-- 登录弹窗 -->
+        <!-- 注册弹窗 -->
+        <div class="regist-alert" v-show='regist_dialog' style='display: none;'>
+            <div class="white_alert_box">
+                <div class="close-btn" @click='closeregist'></div>
+                <div class="ani_head">
+                    <div class="hand"></div>
+                    <div class="hand hand-r"></div>
+                </div>
+                <h3>注册</h3>
+                <form>
+                    <div>
+                        <input type="text" name="username" v-model="regist_mobile" class="regist-username"
+                            placeholder="手机号码">
+                    </div>
+                    <div>
+                        <input type="text" id='testcode' v-model="regist_inputcode" name="text" class="regist-password"
+                            placeholder="请输入验证码">
+                        <button id="testcode-btn" type='button' @click='sendcode'>发送验证码</button>
+                    </div>
+                    <div>
+                        <input type="password" v-model="regist_password" name="regist-password" class="password"
+                            placeholder="密码">
+                    </div>
+
+                    <button id="regist-btn" type="button" @click='regist'>注 册</button>
+                </form>
+            </div>
+        </div>
+        <!-- 注册弹窗 -->
+
+    </div>
+    <!-- Swiper JS -->
+    <script src="./js/common.js"></script>
+    <script src="./js/vue.min.js"></script>
+    <script src="./js/swiper.min.js"></script>
+    <script src="./js/axios.min.js"></script>
+    <script src="./js/vue-lazyload.js"></script>
+    <script>
+        // 可选地，上面的请求可以这样做
+        Vue.use(VueLazyload, {
+            preLoad: 1.1,
+            throttleWait: 800,
+            error: './img/404.jpg',
+            loading: './img/loading.gif',
+            attempt: 3
+        })
+        new Vue({
+            el: '#render',
+            mixins: [headermixin],
+            data: {
+                bannerlist: [],
+                teacherlist: [],
+                filterimg: '',
+                discount: [],
+                common: [],
+                counttimer: null,
+                timecount:0
+            },
+            methods: {
+                setCountTime(res) {
+                    for (var index = 0; index < res.length; index++) {
+                        this.timecount= res[index].discountEnd - res[index].discountStart;
+                        this.timecount = this.timecount / 1000;
+                        var day = 0,
+                            hour = 0,
+                            minute = 0,
+                            second = 0; //时间默认值
+                        if (this.timecount > 0) {
+                            hour = Math.floor(this.timecount / (60 * 60));
+                            minute = Math.floor(this.timecount / 60 % 60);
+                            second = Math.floor(this.timecount) % 60;
+                        }
+                        if (minute <= 9) minute = '0' + minute;
+                        if (second <= 9) second = '0' + second;
+                        this.timecount--;
+                        
+                        res[index].diff={hour:hour,minute:minute,second:second}
+                    }
+                   
+                    
+                    this.discount = res;
+                },
+                swiper() {
+                    var that = this;
+                    axios.get(baseurl + 'cloud/content/getAllBanners')
+                        .then(function (response) {
+
+                            that.bannerlist = response.data.data;
+
+                            that.$nextTick(function () {
+                                var swiper = new Swiper('.swiper-container', {
+                                    observe: true,
+                                    observeParents: true,
+                                    // observeSlideChildren: true,
+                                    speed: 1000,
+                                    slidesPerView: 1,
+                                    spaceBetween: 30,
+                                    loop: true,
+                                    // autoplay: true,
+                                    autoplay: {
+                                        delay: 3000
+                                    }, //可选选项，自动滑动
+                                    pagination: {
+                                        el: '.swiper-pagination',
+                                        clickable: true,
+                                    },
+                                    navigation: {
+                                        nextEl: '.swiper-button-next',
+                                        prevEl: '.swiper-button-prev',
+                                    },
+                                    on: {
+                                        slideChangeTransitionStart: function () {
+
+                                            var sty = window.getComputedStyle(this
+                                                .slides[this.activeIndex], null)
+
+                                            that.filterimg = sty['background-image'];
+                                        }
+                                    }
+                                });
+                            })
+
+
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+
+                },
+                getTeacherPic() {
+
+                    axios.get(baseurl + 'cloud/content/getAllTeachersImage')
+                        .then(function (response) {
+                            this.teacherlist = response.data.data;
+
+
+                        }.bind(this)).catch()
+                },
+                getDiscountCourses() {
+
+                    axios.get(baseurl + 'cloud/course/getDiscountCourses')
+                        .then(function (response) {
+                            // this.discount =response.data.data;
+                            this.setCountTime(response.data.data);
+                            setInterval(function () {
+                                this.setCountTime(response.data.data);
+                            }.bind(this), 1000)
+                        }.bind(this)).catch()
+                },
+                getCommonCourses() {
+
+                    axios.get(baseurl + 'cloud/course/getCommonCourses')
+                        .then(function (response) {
+                            this.common = response.data.data;
+
+
+                        }.bind(this)).catch()
+                }
+            },
+            mounted() {
+                this.swiper();
+                this.getTeacherPic();
+                this.getDiscountCourses();
+                this.getCommonCourses();
+
+            }
+        })
+
+
+
+    </script>
+</body>
+
+</html>
